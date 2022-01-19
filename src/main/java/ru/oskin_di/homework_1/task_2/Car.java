@@ -1,16 +1,29 @@
 package ru.oskin_di.homework_1.task_2;
 
-abstract class Car {
-    public Engine engine;
+/**
+ * для рефакторинга нужно больше условий задачи
+ */
+public abstract class Car implements Moveable, Stopable {
+
+    private Engine engine;
     private String color;
     private String name;
 
 
-    protected void start() {
+    public Car(Engine engine, String color, String name) {
+        this.engine = engine;
+        this.color = color;
+        this.name = name;
+    }
+
+    /**
+     * метод start можно прокинуть в интерфейс, но это тоже зависит от дополнительных условий задачи
+     */
+    public void start() {
         System.out.println("Car starting");
     }
 
-    abstract void open();
+    public abstract void open();
 
     public Engine getEngine() {
         return engine;
